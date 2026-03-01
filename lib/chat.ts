@@ -1,11 +1,20 @@
 import "server-only";
 import { createGitHubAdapter } from "@chat-adapter/github";
 import { createMemoryState } from "@chat-adapter/state-memory";
+import { createRedisState } from "@chat-adapter/state-redis";
 import { Chat } from "chat";
 
 import { env } from "@/lib/env";
 
 let instance: Chat | null = null;
+
+const createState = () => {
+  if (env.REDIS_URL) {
+    return createRedisState({ url: env.REDIS_URL });
+  }
+
+  return createMemoryState();
+};
 
 export const getBot = (): Chat => {
   if (!instance) {
@@ -19,7 +28,7 @@ export const getBot = (): Chat => {
           webhookSecret: env.GITHUB_APP_WEBHOOK_SECRET,
         }),
       },
-      state: createMemoryState(),
+      state: createState(),
       userName: "openreview",
     });
   }

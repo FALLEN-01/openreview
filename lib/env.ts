@@ -9,6 +9,7 @@ export const env = createEnv({
     GITHUB_APP_INSTALLATION_ID: z.coerce.number().int().positive(),
     GITHUB_APP_PRIVATE_KEY: z.string().min(1),
     GITHUB_APP_WEBHOOK_SECRET: z.string().min(1),
+    REDIS_URL: z.string().url().optional(),
   },
   skipValidation: Boolean(process.env.SKIP_ENV_VALIDATION),
 });

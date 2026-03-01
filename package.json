@@ -13,6 +13,7 @@
     "@ai-sdk/anthropic": "^3.0.50",
     "@chat-adapter/github": "^4.15.0",
     "@chat-adapter/state-memory": "^4.15.0",
+    "@chat-adapter/state-redis": "^4.15.0",
     "@t3-oss/env-nextjs": "^0.13.10",
     "@vercel/sandbox": "^1.7.1",
     "ai": "^6.0.105",
