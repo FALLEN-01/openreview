@@ -7,7 +7,7 @@ import { Chat } from "chat";
 import { start } from "workflow/api";
 
 import { env } from "@/lib/env";
-import type { WorkflowParams } from "@/lib/review";
+import type { WorkflowParams } from "@/workflow";
 
 import { getInstallationOctokit } from "./github";
 
@@ -45,7 +45,7 @@ bot.onNewMention(async (thread, message) => {
     repo,
   });
 
-  const { botWorkflow } = await import("@/lib/review");
+  const { botWorkflow } = await import("@/workflow");
 
   await start(botWorkflow, [
     {
