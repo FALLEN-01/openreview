@@ -86,7 +86,7 @@ Install the GitHub App on the repositories you want OpenReview to monitor. Once 
 - [Vercel Workflow](https://vercel.com/docs/workflow) — Durable execution
 - [Vercel Sandbox](https://vercel.com/docs/sandbox) — Isolated code execution
 - [AI SDK](https://sdk.vercel.ai) — AI model integration
-- [Claude](https://anthropic.com) — Code analysis model
+- [AI Gateway](https://vercel.com/docs/ai-gateway) — AI model gateway
 - [Chat SDK](https://www.npmjs.com/package/chat) — GitHub adapter for webhook handling
 - [Octokit](https://github.com/octokit/octokit.js) — GitHub API client
 
