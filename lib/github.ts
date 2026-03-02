@@ -25,14 +25,13 @@ export const getInstallationOctokit = (): Promise<Octokit> => {
 };
 
 export const getBotUserId = async (): Promise<number> => {
-  const githubApp = getGitHubApp();
-  const { data: appData } = (await githubApp.octokit.request("GET /app")) as {
+  const octokit = await getInstallationOctokit();
+  const { data: appData } = (await octokit.request("GET /app")) as {
     data: { slug: string };
   };
-  const { data: botUser } = await githubApp.octokit.request(
-    "GET /users/{username}",
-    { username: `${appData.slug}[bot]` }
-  );
+  const { data: botUser } = await octokit.request("GET /users/{username}", {
+    username: `${appData.slug}[bot]`,
+  });
 
   return botUser.id;
 };
