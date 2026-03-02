@@ -11,7 +11,7 @@ import { env } from "@/lib/env";
 import { botWorkflow } from "@/workflow";
 import type { ThreadMessage, WorkflowParams } from "@/workflow";
 
-import { getInstallationOctokit } from "./github";
+import { getBotUserId, getInstallationOctokit } from "./github";
 
 const collectMessages = async (
   thread: Thread<unknown, unknown>
@@ -43,6 +43,7 @@ export const bot = new Chat({
   adapters: {
     github: createGitHubAdapter({
       appId: env.GITHUB_APP_ID,
+      botUserId: await getBotUserId(),
       installationId: env.GITHUB_APP_INSTALLATION_ID,
       privateKey: env.GITHUB_APP_PRIVATE_KEY.replaceAll("\\n", "\n"),
       userName: "openreview[bot]",
