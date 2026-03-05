@@ -8,20 +8,22 @@ const steps = [
   },
   {
     description:
-      "Create a GitHub App with pull_request and issue_comment webhook permissions, then add the credentials to your environment variables.",
+      "Create a GitHub App with issue_comment and pull_request_review_comment webhook events, then add the credentials to your environment variables.",
     title: "Connect a GitHub App",
   },
   {
     description:
-      "OpenReview automatically reviews PRs when opened or when you mention @openreview in a comment.",
+      "Mention @openreview in any PR comment to trigger an on-demand review, optionally with specific instructions.",
     title: "Get AI reviews",
   },
 ];
 
 const features = [
-  "Automated reviews on every PR",
-  "Mention @openreview for on-demand reviews",
+  "On-demand reviews via @openreview mentions",
+  "Inline suggestions with one-click fixes",
+  "Code changes committed and pushed to your PR branch",
   "Runs in a sandboxed environment with full repo access",
+  "React with thumbs up to approve or thumbs down to skip",
   "Powered by Claude via the AI SDK",
   "Built on Vercel Workflow for durable execution",
 ];
@@ -32,7 +34,7 @@ export const DeployButton = () => {
   // Demo
   url.searchParams.set(
     "demo-description",
-    "An open-source, self-hosted AI code review bot. Deploy to Vercel, connect a GitHub App, and get automated PR reviews powered by Claude."
+    "An open-source, self-hosted AI code review bot. Deploy to Vercel, connect a GitHub App, and get on-demand PR reviews powered by Claude."
   );
   url.searchParams.set(
     "demo-image",
@@ -102,7 +104,7 @@ const Page = () => (
         </h1>
         <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
           An open-source, self-hosted AI code review bot. Deploy to Vercel,
-          connect a GitHub App, and get automated PR reviews powered by Claude.
+          connect a GitHub App, and get on-demand PR reviews powered by Claude.
         </p>
         <div className="flex gap-3">
           <DeployButton />
